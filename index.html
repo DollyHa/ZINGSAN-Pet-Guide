@@ -3,71 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZINGSAN | Smart Pet Tag Guide</title>
+    <title>ZINGSAN DIGITAL | Luxury Pet Safety</title>
     <style>
-        :root { --primary: #2563eb; --success: #10b981; --bg: #f8fafc; --text: #1e293b; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
-        header { padding: 3rem 1rem; text-align: center; background: white; border-bottom: 1px solid #e2e8f0; }
-        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 3px; color: var(--primary); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; display: flex; gap: 2rem; }
-        .card { background: white; border-radius: 24px; padding: 2rem; flex: 1; box-shadow: 0 10px 25px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .badge { display: inline-block; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; width: fit-content; }
-        .badge-simple { background: #dcfce7; color: #166534; }
-        .badge-pro { background: #dbeafe; color: #1e40af; }
-        .info-list { background: #f1f5f9; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.5rem; }
-        .info-item { font-size: 0.85rem; margin-bottom: 0.6rem; color: #475569; }
-        .info-item b { color: var(--primary); }
-        
-        /* iPhone Mockup */
-        .iphone-mockup { position: relative; width: 250px; height: 500px; background: #111; border: 8px solid #333; border-radius: 40px; margin: 1rem auto; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .iphone-island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 70px; height: 20px; background: #000; border-radius: 20px; z-index: 10; }
-        .iphone-screen { width: 100%; height: 100%; overflow-y: auto; background: #000; }
-        .iphone-screen img { width: 100%; height: auto; display: block; }
-        
-        .btn { display: block; text-align: center; padding: 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; }
-        .btn-pro { background: var(--success); }
-        @media (max-width: 850px) { .container { flex-direction: column; } }
+        :root {
+            --brand-black: #0f172a;
+            --brand-blue: #2563eb;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 方案 A 核心：极简 Logo 设计 */
+        header {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: white;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .brand-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .logo-main {
+            font-size: 1.6rem;
+            font-weight: 300; /* 轻盈细体 */
+            letter-spacing: 0.5rem; /* 极致字间距 */
+            text-transform: uppercase;
+            color: var(--brand-black);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+            color: var(--brand-blue);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--brand-black);
+            margin: 1.5rem 0 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 响应式容器 */
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 4rem;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            flex: 1;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f1f5f9;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--brand-blue);
+        }
+
+        .iphone-mockup {
+            position: relative;
+            width: 240px;
+            height: 480px;
+            background: #000;
+            border: 7px solid #1e293b;
+            border-radius: 36px;
+            margin: 2rem auto;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .iphone-island {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65px;
+            height: 18px;
+            background: #000;
+            border-radius: 10px;
+            z-index: 10;
+        }
+
+        .iphone-screen img { width: 100%; display: block; }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 1.2rem;
+            background: var(--brand-black);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover { background: var(--brand-blue); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; margin-top: 2rem; }
+            h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
-    <header style="padding: 3rem 1rem; text-align: center; background: white; border-bottom: 1px solid #e2e8f0;">
-        <div style="font-size: 1.8rem; font-weight: 900; letter-spacing: 3px; color: #2563eb; margin-bottom: 0.5rem; text-transform: uppercase;">
-            ZINGSAN
+
+    <header>
+        <div class="brand-wrapper">
+            <h2 class="logo-main">ZINGSAN</h2>
+            <span class="logo-sub">DIGITAL</span>
         </div>
-        
-        <h1 style="margin: 0.5rem 0; font-size: 2.2rem; color: #0f172a; font-weight: 800;">
-            Activate Your Pet's Digital Guardian
-        </h1>
-        
-        <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0; line-height: 1.6;">
-            A borderless, reliable safety net designed to bring your best friend home.
-        </p>
+        <h1>Activate Your Guardian</h1>
+        <p class="hero-desc">The ultimate safety net for your best friend, powered by seamless NFC technology.</p>
     </header>
+
     <div class="container">
         <div class="card">
-            <span class="badge badge-simple">SIMPLE MODE</span>
-            <h2>Direct Write (Offline)</h2>
-            <p style="color: #64748b;">Write key info directly into the tag using <b>NFC Tools</b>.</p>
-            <div class="info-list">
-                <div class="info-item"><b>☎️ Phone:</b> Call owner directly</div>
-                <div class="info-item"><b>📧 Email:</b> Send contact message</div>
-                <div class="info-item"><b>💰 Reward:</b> Incentive for return</div>
-                <div class="info-item"><b>🏠 Address:</b> Home location</div>
-            </div>
-            <a href="#" class="btn">View Write Guide</a>
+            <div class="badge">Option 01 / Basic</div>
+            <h3 style="font-size: 1.4rem; margin: 0 0 1rem;">Direct Storage</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; flex-grow: 1;">Permanent offline record. Instant access to your contact info without any cloud account.</p>
+            <ul style="padding: 1rem 0; list-style: none; font-size: 0.85rem; color: var(--text-muted);">
+                <li style="margin-bottom: 0.5rem;">✓ One-tap Dialing</li>
+                <li style="margin-bottom: 0.5rem;">✓ Medical Alerts</li>
+                <li>✓ Zero Subscription</li>
+            </ul>
+            <a href="#" class="btn">Write to Tag</a>
         </div>
+
         <div class="card">
-            <span class="badge badge-pro">PRO MODE</span>
-            <h2>Cloud Profile (Linktree)</h2>
-            <p style="color: #64748b;">Update photos and contact info anytime online.</p>
+            <div class="badge" style="color: #10b981;">Option 02 / Advanced</div>
+            <h3 style="font-size: 1.4rem; margin: 0 0 1rem;">Cloud Identity</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Dynamic profile. Update photos, GPS, and rewards anytime from anywhere in the world.</p>
+            
             <div class="iphone-mockup">
                 <div class="iphone-island"></div>
                 <div class="iphone-screen">
                     <img src="preview.png" alt="ZINGSAN Preview">
                 </div>
             </div>
-            <a href="https://linktr.ee" class="btn btn-pro">Create Pro Profile</a>
+
+            <a href="https://linktr.ee" class="btn" style="background: #10b981;">Create Profile</a>
         </div>
     </div>
+
+    <footer style="text-align: center; padding: 4rem 1rem; color: #94a3b8; font-size: 0.75rem; letter-spacing: 0.1em;">
+        &copy; 2026 ZINGSAN DIGITAL. ENGINEERED FOR SAFETY.
+    </footer>
+
 </body>
 </html>
