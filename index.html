@@ -112,11 +112,15 @@
             background: #fff;   /* 屏幕内背景设为白色，更自然 */
         }
 
-        .iphone-screen img {
+       .iphone-screen img {
             width: 100%;
             height: 100%;
-            object-fit: cover;  /* 图片铺满全屏且不留白，也不会出滚动条 */
+            object-fit: contain; /* 改为 contain，确保图片完整且居中显示 */
+            object-position: center; /* 强制图片在容器正中心 */
             display: block;
+            margin: 0; /* 彻底清除可能存在的边距 */
+            padding: 0;
+            background-color: #000; /* 给背景垫一层黑色，这样图片边缘不会有突兀的白边 */
         }
 
         /* 专门为左侧简单模式定制的白色模拟器 */
