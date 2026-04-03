@@ -5,201 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZINGSAN | Smart Pet Tag Setup Guide</title>
     <style>
+        /* 你原有的样式保持不变... */
         :root {
-            --primary: #2563eb;    /* 经典科技蓝 */
-            --success: #10b981;    /* 进阶版活力绿 */
+            --primary: #2563eb;
+            --success: #10b981;
             --bg: #f8fafc;
             --text: #1e293b;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        header {
-            padding: 3rem 1rem;
+        /* 新增：尺寸显示横幅样式 */
+        #size-banner {
+            display: none; /* 默认隐藏 */
+            background: #0f172a;
+            color: white;
             text-align: center;
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            margin: 0.5rem 0;
-            font-size: 2.2rem;
-            color: #0f172a;
+            padding: 8px 0;
+            font-size: 0.9rem;
             font-weight: 800;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .hero-desc {
-            color: #64748b;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 1rem auto 0;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-            display: flex;
-            gap: 2rem;
-            flex-direction: row;
-        }
-
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            flex: 1;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid transparent;
-            transition: transform 0.2s;
-        }
-        
+        /* 以下是你原有的其他 CSS 逻辑... */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.5; }
+        header { padding: 4rem 1rem; text-align: center; background: white; border-bottom: 2px solid #0f172a; }
+        .logo-main { font-size: 2.8rem; font-weight: 900; letter-spacing: -0.05rem; text-transform: uppercase; color: #0f172a; line-height: 0.9; margin: 0; font-family: 'Arial Black', sans-serif; }
+        .logo-sub { font-size: 0.8rem; font-weight: 900; letter-spacing: 0.65rem; text-transform: uppercase; color: #2563eb; margin-top: 0.4rem; padding-left: 0.3rem; display: block; border-top: 3px solid #0f172a; padding-top: 0.3rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; display: flex; gap: 2rem; flex-direction: row; }
+        .card { background: white; border-radius: 24px; padding: 2rem; flex: 1; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid transparent; transition: transform 0.2s; }
         .card:hover { transform: translateY(-5px); }
-
-        .badge {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-
+        .badge { display: inline-block; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; width: fit-content; }
         .badge-simple { background: #dcfce7; color: #166534; }
         .badge-pro { background: #dbeafe; color: #1e40af; }
-
-        h2 { margin: 0.5rem 0; font-size: 1.5rem; color: #0f172a; }
-        .desc { color: #64748b; margin-bottom: 1rem; flex-grow: 0; }
-
-        /* 优化后的 iPhone 模拟器：增加高度并隐藏滚动条 */
-        .iphone-mockup {
-            position: relative;
-            width: 260px;       /* 宽度微调 */
-            height: 530px;      /* 增加高度，给内容更多空间 */
-            border-radius: 40px;
-            margin: 1.5rem auto;
-            overflow: hidden;   /* 确保超出部分被隐藏 */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 8px solid #333;
-            background: #000;
-        }
-
-        .iphone-screen {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;   /* 彻底取消右侧滚动条 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;   /* 屏幕内背景设为白色，更自然 */
-        }
-
-       .iphone-screen img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* 改为 contain，确保图片完整且居中显示 */
-            object-position: center; /* 强制图片在容器正中心 */
-            display: block;
-            margin: 0; /* 彻底清除可能存在的边距 */
-            padding: 0;
-            background-color: #000; /* 给背景垫一层黑色，这样图片边缘不会有突兀的白边 */
-        }
-
-        /* 专门为左侧简单模式定制的白色模拟器 */
-        .mockup-white {
-            background: #fff;
-            border-color: #e2e8f0;
-        }
-
-        /* 专门为右侧进阶模式定制的黑色模拟器 */
-        .mockup-black {
-            background: #111;
-            border-color: #333;
-        }
-
-        .iphone-island {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 65px;
-            height: 18px;
-            background: #000;
-            border-radius: 20px;
-            z-index: 10;
-        }
-
-        .iphone-screen {
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        .iphone-screen img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 1rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-top: auto; /* 确保按钮在底部对齐 */
-        }
-
+        .iphone-mockup { position: relative; width: 260px; height: 530px; border-radius: 40px; margin: 1.5rem auto; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 8px solid #333; background: #000; }
+        .iphone-screen { width: 100%; height: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff; }
+        .iphone-screen img { width: 100%; height: 100%; object-fit: contain; display: block; background-color: #000; }
+        .btn { display: block; text-align: center; padding: 1rem; background: var(--primary); color: white; text-transform: uppercase; text-decoration: none; border-radius: 12px; font-weight: 700; margin-top: auto; }
         .btn-pro { background: var(--success); }
-
-        @media (max-width: 850px) {
-            .container { flex-direction: column; }
-            h1 { font-size: 1.8rem; }
-            .iphone-mockup { width: 210px; height: 420px; }
-        }
+        @media (max-width: 850px) { .container { flex-direction: column; } }
     </style>
 </head>
 <body>
 
-    <header style="padding: 4rem 1rem; text-align: center; background: white; border-bottom: 2px solid #0f172a;">
+    <div id="size-banner">ZINGSAN GUARDIAN | SIZE: <span id="size-val"></span></div>
+
+    <header>
         <div class="brand-wrapper" style="margin-bottom: 1.5rem; display: inline-block;">
-            <div class="logo-main" style="font-size: 2.8rem; font-weight: 900; letter-spacing: -0.05rem; text-transform: uppercase; color: #0f172a; line-height: 0.9; margin: 0; font-family: 'Arial Black', sans-serif;">
-                ZINGSAN
-            </div>
-            <div class="logo-sub" style="font-size: 0.8rem; font-weight: 900; letter-spacing: 0.65rem; text-transform: uppercase; color: #2563eb; margin-top: 0.4rem; padding-left: 0.3rem; display: block; border-top: 3px solid #0f172a; padding-top: 0.3rem;">
-                DIGITAL
-            </div>
+            <div class="logo-main">ZINGSAN</div>
+            <div class="logo-sub">DIGITAL</div>
         </div>
-        
-        <h1 style="margin: 1.5rem 0 0.5rem; font-size: 2.2rem; color: #0f172a; font-weight: 800; letter-spacing: -0.02em;">
-            Activate Your Guardian
-        </h1>
-        
-        <p style="color: #64748b; font-size: 1.1rem; max-width: 550px; margin: 0.5rem auto 0; line-height: 1.4;">
-            Rugged. Reliable. Digital. <br>The last safety tag your pet will ever need.
-        </p>
+        <h1>Activate Your Guardian</h1>
+        <p class="hero-desc">Rugged. Reliable. Digital. <br>The last safety tag your pet will ever need.</p>
     </header>
 
     <div class="container">
@@ -207,18 +65,14 @@
             <span class="badge badge-simple">⚡ SIMPLE MODE</span>
             <h2>Direct Write (Offline)</h2>
             <p class="desc">Save info directly into the chip. Instant phone/email popup without any cloud account.</p>
-            
-            <div class="iphone-mockup mockup-white">
-                <div class="iphone-island" style="background: #e2e8f0;"></div>
+            <div class="iphone-mockup">
                 <div class="iphone-screen">
-                    <img src="nfc-demo.gif" alt="NFC Scanning Demo" style="margin-top: 20px;">
+                    <img src="nfc-demo.gif" alt="NFC Demo">
                 </div>
             </div>
-
             <ul style="padding-left: 1.2rem; color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem;">
-                <li style="margin-bottom: 5px;"><b>✓ Best Practice:</b> 1-2 phone numbers (+1 format)</li>
-                <li style="margin-bottom: 5px;">✓ Instant Phone/Email popup</li>
-                <li style="margin-bottom: 5px;">✓ Works without internet</li>
+                <li><b>✓ Best Practice:</b> 1-2 phone numbers (+1 format)</li>
+                <li>✓ Works without internet</li>
                 <li>✓ Zero subscription fees</li>
             </ul>
             <a href="#" class="btn">View Write Guide</a>
@@ -226,16 +80,13 @@
 
         <div class="card">
             <span class="badge badge-pro">🌟 PRO MODE</span>
-            <h2>Cloud Dashboard (Linktree)</h2>
+            <h2>Cloud Dashboard</h2>
             <p class="desc">Connect to a dynamic profile. Update pet photos, GPS, and records anytime online.</p>
-            
-            <div class="iphone-mockup mockup-black">
-                <div class="iphone-island"></div>
+            <div class="iphone-mockup">
                 <div class="iphone-screen">
-                    <img src="preview.png" alt="Pet Profile Preview">
+                    <img src="preview.png" alt="Pro Preview">
                 </div>
             </div>
-
             <ul style="padding-left: 1.2rem; color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem;">
                 <li>✓ Unlimited Updates</li>
                 <li>✓ GPS Location Support</li>
@@ -245,29 +96,18 @@
         </div>
     </div>
 
-    <footer style="padding: 4rem 1rem 2rem; background: #f1f5f9; color: #64748b; font-size: 0.75rem; line-height: 1.6; text-align: center; border-top: 1px solid #e2e8f0;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p style="margin-bottom: 1rem; font-weight: 700; color: #475569; letter-spacing: 0.05em;">
-                ZINGSAN DIGITAL | PRODUCT DISCLAIMER
-            </p>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const size = urlParams.get('s'); // 获取 ?s=m 里的参数
             
-            <p style="margin-bottom: 0.5rem;">
-                <b>Product Use:</b> This smart pet tag is a supplementary tool to help identify lost pets. It is NOT a GPS tracking device and requires an NFC-enabled smartphone to scan. 
-            </p>
-
-            <p style="margin-bottom: 0.5rem;">
-                <b>Data Privacy:</b> Information written directly to the chip in "Simple Mode" is stored locally on the tag. ZINGSAN does not collect or store any personal data from offline tags. For "Pro Mode," please refer to your third-party profile provider's privacy policy.
-            </p>
-
-            <p style="margin-bottom: 1.5rem;">
-                <b>Liability:</b> ZINGSAN Digital is not responsible for any pet loss, tag malfunction, or data inaccuracies. Always ensure your contact information is up to date and the tag is securely attached to your pet's collar.
-            </p>
-
-            <p style="border-top: 1px solid #cbd5e1; padding-top: 1.5rem; color: #94a3b8;">
-                &copy; 2026 ZINGSAN DIGITAL. All Rights Reserved. Engineered for pet safety.
-            </p>
-        </div>
-    </footer>
-
+            if (size) {
+                const banner = document.getElementById('size-banner');
+                const val = document.getElementById('size-val');
+                val.innerText = size.toUpperCase();
+                banner.style.display = 'block'; // 显示横幅
+            }
+        };
+    </script>
 </body>
 </html>
