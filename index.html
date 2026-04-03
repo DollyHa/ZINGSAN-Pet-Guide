@@ -119,6 +119,41 @@
     </div>
 
     <footer>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p style="margin-bottom: 1rem; font-weight: 700; color: #475569; letter-spacing: 0.05em; text-transform: uppercase;">
-                ZINGSAN DIGITAL
+        <div class="disclaimer-container">
+            <div class="disclaimer-title">
+                ZINGSAN DIGITAL | PRODUCT DISCLAIMER
+            </div>
+            
+            <div class="disclaimer-item">
+                <span class="disclaimer-label">Product Use:</span>
+                <span class="disclaimer-content">This smart pet tag is a supplementary tool to help identify lost pets. It is NOT a GPS tracking device and requires an NFC-enabled smartphone to scan.</span>
+            </div>
+
+            <div class="disclaimer-item">
+                <span class="disclaimer-label">Data Privacy:</span>
+                <span class="disclaimer-content">Information written directly to the chip in "Simple Mode" is stored locally on the tag. ZINGSAN does not collect or store any personal data from offline tags.</span>
+            </div>
+
+            <div class="disclaimer-item">
+                <span class="disclaimer-label">Liability:</span>
+                <span class="disclaimer-content">ZINGSAN Digital is not responsible for any pet loss, tag malfunction, or data inaccuracies. Always ensure your contact information is up to date.</span>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 ZINGSAN DIGITAL. All Rights Reserved. Engineered for pet safety.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const size = params.get('s');
+            if (size) {
+                document.getElementById('size-val').innerText = size.toUpperCase();
+                document.getElementById('size-banner').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
