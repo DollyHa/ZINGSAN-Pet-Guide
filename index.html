@@ -59,13 +59,37 @@
         .badge-simple { background: #dcfce7; color: #166534; }
         .badge-pro { background: #dbeafe; color: #1e40af; }
 
-        .iphone-mockup { position: relative; width: 240px; height: 480px; border-radius: 35px; margin: 1.5rem auto; overflow: hidden; border: 8px solid #333; background: #000; }
-        .iphone-screen img { width: 100%; height: 100%; object-fit: cover; }
+        /* --- 修改重点：优化手机模型显示比例 --- */
+        .iphone-mockup { 
+            position: relative; 
+            width: 240px; 
+            aspect-ratio: 9 / 19.5; /* 锁定现代手机屏幕的长宽比 */
+            border-radius: 35px; 
+            margin: 1.5rem auto; 
+            overflow: hidden; 
+            border: 8px solid #333; 
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+        }
+
+        .iphone-screen img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* 关键：确保 GIF 完整显示，不被裁剪底部 */
+            display: block;
+        }
+        /* ---------------------------------- */
 
         .btn { display: block; text-align: center; padding: 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; margin-top: auto; }
         .btn-pro { background: var(--success); }
 
-        /* 恢复免责声明样式 */
         footer {
             padding: 4rem 1rem 2rem;
             background: #f1f5f9;
@@ -99,7 +123,7 @@
             <p>Save info directly into the chip. Instant phone/email popup without any cloud account.</p>
             <div class="iphone-mockup">
                 <div class="iphone-screen">
-                    <img src="nfc-demo.gif" alt="NFC Demo">
+                    <img src="nfc-demo.gif" alt="ZINGSAN NFC Demo">
                 </div>
             </div>
             <a href="guide.html" class="btn">View Write Guide</a>
@@ -120,26 +144,26 @@
 
     <footer>
         <div class="disclaimer-container">
-            <div class="disclaimer-title">
+            <div class="disclaimer-title" style="font-weight: bold; margin-bottom: 10px;">
                 ZINGSAN DIGITAL | PRODUCT DISCLAIMER
             </div>
             
             <div class="disclaimer-item">
-                <span class="disclaimer-label">Product Use:</span>
+                <span class="disclaimer-label" style="font-weight: bold;">Product Use:</span>
                 <span class="disclaimer-content">This smart pet tag is a supplementary tool to help identify lost pets. It is NOT a GPS tracking device and requires an NFC-enabled smartphone to scan.</span>
             </div>
 
             <div class="disclaimer-item">
-                <span class="disclaimer-label">Data Privacy:</span>
+                <span class="disclaimer-label" style="font-weight: bold;">Data Privacy:</span>
                 <span class="disclaimer-content">Information written directly to the chip in "Simple Mode" is stored locally on the tag. ZINGSAN does not collect or store any personal data from offline tags.</span>
             </div>
 
             <div class="disclaimer-item">
-                <span class="disclaimer-label">Liability:</span>
+                <span class="disclaimer-label" style="font-weight: bold;">Liability:</span>
                 <span class="disclaimer-content">ZINGSAN Digital is not responsible for any pet loss, tag malfunction, or data inaccuracies. Always ensure your contact information is up to date.</span>
             </div>
 
-            <div class="copyright">
+            <div class="copyright" style="margin-top: 20px;">
                 &copy; 2026 ZINGSAN DIGITAL. All Rights Reserved. Engineered for pet safety.
             </div>
         </div>
