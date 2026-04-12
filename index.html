@@ -37,17 +37,42 @@
         }
 
         header {
-            padding: 4rem 1rem;
+            padding: 3rem 1rem 2rem;
             text-align: center;
             background: white;
             border-bottom: 2px solid var(--dark);
         }
 
-        .brand-wrapper { margin-bottom: 1.5rem; display: inline-block; }
-        .logo-main { font-size: 2.8rem; font-weight: 900; letter-spacing: -0.05rem; text-transform: uppercase; color: var(--dark); line-height: 0.9; margin: 0; font-family: 'Arial Black', sans-serif; }
-        .logo-sub { font-size: 0.8rem; font-weight: 900; letter-spacing: 0.65rem; text-transform: uppercase; color: var(--primary); margin-top: 0.4rem; padding-left: 0.3rem; display: block; border-top: 3px solid var(--dark); padding-top: 0.3rem; }
+        .brand-wrapper { 
+            margin-bottom: 1rem; 
+            display: inline-block; 
+        }
+
+        .logo-main { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            letter-spacing: -0.02rem; 
+            text-transform: uppercase; 
+            color: var(--dark); 
+            line-height: 0.85; 
+            margin: 0; 
+            font-family: 'Arial Black', sans-serif; 
+        }
+
+        .logo-sub { 
+            font-size: 0.85rem; 
+            font-weight: 900; 
+            letter-spacing: 0.8rem; 
+            text-transform: uppercase; 
+            color: var(--primary); 
+            margin-top: 0.5rem; 
+            padding-left: 0.4rem; 
+            display: block; 
+            border-top: 4px solid var(--dark); 
+            padding-top: 0.4rem; 
+        }
         
-        h1 { margin: 1.5rem 0 0.5rem; font-size: 2.2rem; color: var(--dark); font-weight: 800; }
+        h1 { margin: 1rem 0 0.5rem; font-size: 2.2rem; color: var(--dark); font-weight: 800; }
         .hero-desc { color: #64748b; font-size: 1.1rem; max-width: 550px; margin: 0.5rem auto 0; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; display: flex; gap: 2rem; }
@@ -59,11 +84,11 @@
         .badge-simple { background: #dcfce7; color: #166534; }
         .badge-pro { background: #dbeafe; color: #1e40af; }
 
-        /* --- 修改重点：优化手机模型显示比例 --- */
         .iphone-mockup { 
             position: relative; 
             width: 240px; 
-            aspect-ratio: 9 / 19.5; /* 锁定现代手机屏幕的长宽比 */
+            height: min(480px, 60vh); 
+            aspect-ratio: 9 / 19.5; 
             border-radius: 35px; 
             margin: 1.5rem auto; 
             overflow: hidden; 
@@ -74,18 +99,8 @@
             justify-content: center;
         }
 
-        .iphone-screen {
-            width: 100%;
-            height: 100%;
-        }
-
-        .iphone-screen img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; /* 关键：确保 GIF 完整显示，不被裁剪底部 */
-            display: block;
-        }
-        /* ---------------------------------- */
+        .iphone-screen { width: 100%; height: 100%; }
+        .iphone-screen img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
         .btn { display: block; text-align: center; padding: 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; margin-top: auto; }
         .btn-pro { background: var(--success); }
@@ -100,13 +115,16 @@
             border-top: 1px solid #e2e8f0;
         }
 
+        @media (max-width: 600px) {
+            .logo-main { font-size: 2.8rem; }
+            .logo-sub { letter-spacing: 0.55rem; font-size: 0.75rem; }
+        }
+
         @media (max-width: 850px) { .container { flex-direction: column; } }
     </style>
 </head>
 <body>
-
     <div id="size-banner">ZINGSAN GUARDIAN | SIZE: <span id="size-val"></span></div>
-
     <header>
         <div class="brand-wrapper">
             <div class="logo-main">ZINGSAN</div>
@@ -144,28 +162,20 @@
 
     <footer>
         <div class="disclaimer-container">
-            <div class="disclaimer-title" style="font-weight: bold; margin-bottom: 10px;">
-                ZINGSAN DIGITAL | PRODUCT DISCLAIMER
-            </div>
-            
+            <div class="disclaimer-title" style="font-weight: bold; margin-bottom: 10px;">ZINGSAN DIGITAL | PRODUCT DISCLAIMER</div>
             <div class="disclaimer-item">
                 <span class="disclaimer-label" style="font-weight: bold;">Product Use:</span>
                 <span class="disclaimer-content">This smart pet tag is a supplementary tool to help identify lost pets. It is NOT a GPS tracking device and requires an NFC-enabled smartphone to scan.</span>
             </div>
-
             <div class="disclaimer-item">
                 <span class="disclaimer-label" style="font-weight: bold;">Data Privacy:</span>
                 <span class="disclaimer-content">Information written directly to the chip in "Simple Mode" is stored locally on the tag. ZINGSAN does not collect or store any personal data from offline tags.</span>
             </div>
-
             <div class="disclaimer-item">
                 <span class="disclaimer-label" style="font-weight: bold;">Liability:</span>
                 <span class="disclaimer-content">ZINGSAN Digital is not responsible for any pet loss, tag malfunction, or data inaccuracies. Always ensure your contact information is up to date.</span>
             </div>
-
-            <div class="copyright" style="margin-top: 20px;">
-                &copy; 2026 ZINGSAN DIGITAL. All Rights Reserved. Engineered for pet safety.
-            </div>
+            <div class="copyright" style="margin-top: 20px;">&copy; 2026 ZINGSAN DIGITAL. All Rights Reserved. Engineered for pet safety.</div>
         </div>
     </footer>
 
